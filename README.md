@@ -5,9 +5,10 @@
 
     [value1] [value2] [value3]...
 
-    value1 = stack.pop()
-    value2 = stack.pop()
+    ...
     value3 = stack.pop()
+    value2 = stack.pop()
+    value1 = stack.pop()
 
 -----
 

@@ -1,7 +1,7 @@
 # Stack Machine
 
 ---
-##How arguments work
+## How arguments work
 
     [value1] [value2] [value3]...
 

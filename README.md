@@ -17,92 +17,26 @@
 
 ---
 
-## 산술연산자(0x0\_)
+## 명령어
 
-### add
+| 산술 | `ADD`  | `SUB`  | `NEG`  |  `EQ`  |  `GT`  |  `LT`  | `AND`  |  `OR`  |
+| ---- | :----: | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
+|      | `0x00` | `0x01` | `0x02` | `0x03` | `0x04` | `0x05` | `0x06` | `0x07` |
 
-    0x00
+| 분기 |   `jump address(4byte)`    |  `if-jump address(4byte)`  |
+| ---- | :------------------------: | :------------------------: |
+|      | `0x10 0x__ 0x__ 0x__ 0x__` | `0x20 0x__ 0x__ 0x__ 0x__` |
 
-    [value1] [value2]
+| 메모리 | `push segment(1) index(1, 4)` | `pop segment(1) index(1, 4)` |
+| ------ | :---------------------------- | :--------------------------- |
+|        | `0x20`                        | `0x21`                       |
 
-### sub
+| segment | `constant` | `argument` | `local` | `in(push only)` | `out(pop only)` |
+| ------- | :--------: | :--------: | :-----: | :-------------: | :-------------: |
+| code    |   `0x30`   |   `0x31`   | `0x32`  |     `0x33`      |     `0x34`      |
+| index   |   4byte    |   1byte    |  1byte  |      1byte      |      1byte      |
 
-    0x01
+## 파일 작성법
 
-    [value1] [value2]
-
-### neg
-
-    0x02
-
-    [value]
-
-### eq
-
-    0x03
-
-    [value1] [value2]
-
-### gt
-
-    0x04
-
-    [value1] [value2]
-
-### lt
-
-    0x05
-
-    [value1] [value2]
-
-### and
-
-    0x06
-
-    [value1] [value2]
-
-### or
-
-    0x07
-
-    [value1] [value2]
-
-### not
-
-    0x08
-
-    [value]
-
-## 메모리 분기(0x1\_)
-
-### goto
-
-    0x10
-
-    [value]
-
-### if-goto
-
-    0x11
-
-    [bool] [value]
-
-## 메모리(0x2\_)
-
-### push [value]
-
-    0x20
-
-### pop
-
-    0x21
-
-    [value]
-
-## 입출력(0x3\_)
-
-### print
-
-    0x30
-
-    [value]
+파일의 처음 두 바이트는 각각 local배열의 길이, argument의 갯수를 나타냄.  
+-> jump명령어 작성시 고려하지 않음!

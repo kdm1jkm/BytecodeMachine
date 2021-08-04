@@ -10,28 +10,31 @@
     value2 = stack.pop()
     value1 = stack.pop()
 
+## Other details
+
+variable: 32bit integer only
+
 -----
 
 ## Operator
 
-### if equal
+### equal
 
     0x00
 
     [value1] [value2]
 
-if `[value1] == [value2]`, push `01`  
-else push `00`
+if `[value1] == [value2]`, push `0xFFFFFFFF`  
+else push `0x00000000`
 
 
-### if not equal
+### negative
 
     0x01
 
-    [value1] [value2]
+    [value]
 
-if `[value1] != [value2]`, push `01`   
-else push `00`
+push `![value]`
 
 ### if larger 
 
@@ -39,8 +42,8 @@ else push `00`
 
     [value1] [value2]
 
-if `[value1] > [value2]`, push `01`  
-else push `00`
+if `[value1] > [value2]`, push `0xFFFFFFFF`  
+else push `0x00000000`
 
 
 ### if smaller
@@ -49,8 +52,8 @@ else push `00`
 
     [value1] [value2]
 
-if `[value1] < [value2]`, push `01`  
-else push `00`
+if `[value1] < [value2]`, push `0xFFFFFFFF`  
+else push `0x00000000`
 
 ### goto
 
@@ -67,13 +70,19 @@ goto `[byte]`of the file
 
     [byte] [value]
 
-if `[value] != 00`, goto `[byte]` of the file
+if `[value] == 0xFFFFFFFF`, goto `[byte]` of the file
 
-### push `[value]/[variable]`
+### push-value `[value]`
 
     0x06
 
-push `[value]/[variable]` to the stack
+push `[value]` to the stack.
+
+### push-var `[varIndex]`
+
+
+
+push `[value]` to the stack
 
 ### pop `[variable]/[]`
 

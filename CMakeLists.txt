@@ -5,8 +5,8 @@ include(CTest)
 enable_testing()
 
 file(GLOB sources
-     "*.h"
-     "*.cpp"
+     "src/*.h"
+     "src/*.cpp"
 )
 
 add_executable(BytecodeMachine ${sources})

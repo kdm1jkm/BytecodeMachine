@@ -8,7 +8,7 @@ class Machine
 {
 private:
     ifstream in;
-    stack<uint32_t> stack;
+    stack<int32_t> stack;
 
     enum Code
     {
@@ -40,7 +40,7 @@ public:
         {
         case Code::PUSH:
         {
-            uint32_t value;
+            int32_t value;
             in.read((char *)&value, 4);
 
             stack.push(value);

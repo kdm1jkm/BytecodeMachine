@@ -1,7 +1,8 @@
 # Stack Machine
 
 ---
-## How arguments work
+
+## 매개변수 작동법
 
     [value1] [value2] [value3]...
 
@@ -10,124 +11,98 @@
     value2 = stack.pop()
     value1 = stack.pop()
 
-## Other details
+## 기타
 
-variable: 32bit integer only
+변수: 32bit 정수
 
------
+---
 
-## Operator
+## 산술연산자(0x0\_)
 
-### equal
+### add
 
     0x00
 
     [value1] [value2]
 
-if `[value1] == [value2]`, push `0xFFFFFFFF`  
-else push `0x00000000`
-
-
-### negative
+### sub
 
     0x01
 
-    [value]
+    [value1] [value2]
 
-push `![value]`
-
-### if larger 
+### neg
 
     0x02
 
-    [value1] [value2]
+    [value]
 
-if `[value1] > [value2]`, push `0xFFFFFFFF`  
-else push `0x00000000`
-
-
-### if smaller
+### eq
 
     0x03
 
     [value1] [value2]
 
-if `[value1] < [value2]`, push `0xFFFFFFFF`  
-else push `0x00000000`
-
-### goto
+### gt
 
     0x04
 
-    [byte]
+    [value1] [value2]
 
-goto `[byte]`of the file
-
-
-### if-goto
+### lt
 
     0x05
 
-    [byte] [value]
+    [value1] [value2]
 
-if `[value] == 0xFFFFFFFF`, goto `[byte]` of the file
-
-### push-value `[value]`
+### and
 
     0x06
 
-push `[value]` to the stack.
+    [value1] [value2]
 
-### push-var `[varIndex]`
-
-
-
-push `[value]` to the stack
-
-### pop `[variable]/[]`
+### or
 
     0x07
 
-    [value]
+    [value1] [value2]
 
-pop `[value]` and save result to `[variable]` if exists
-
-### add
+### not
 
     0x08
 
-    [value1] [value2]
+    [value]
 
-push `[value1] + [value2]`
+## 메모리 분기(0x1\_)
 
-### subtract
+### goto
 
-    0x09
+    0x10
 
-    [value1] [value2]
+    [value]
 
-push `[value1] - [value2]`
+### if-goto
 
-### multiply
+    0x11
 
-    0x0A
+    [bool] [value]
 
-    [value1] [value2]
+## 메모리(0x2\_)
 
-push `[value1] * [value2]`
+### push [value]
 
-### divide
+    0x20
 
-    0x0B
+### pop
 
-    [value1] [value2]
+    0x21
 
-push `[value1] / [value2]`
+    [value]
+
+## 입출력(0x3\_)
 
 ### print
 
-    0x0C
+    0x30
 
-    [character]
-
-print `[character]`
+    [value]

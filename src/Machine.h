@@ -23,7 +23,12 @@ private:
         JUMP = 0x10,
         IF_JUMP,
         PUSH = 0x20,
-        POP = 0x21
+        POP,
+        CONSTANT = 0x30,
+        ARGUMENT,
+        LOCAL,
+        IN,
+        OUT
     };
 
 public:

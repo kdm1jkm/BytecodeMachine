@@ -4,7 +4,12 @@ project(BytecodeMachine VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
-add_executable(BytecodeMachine main.cpp)
+file(GLOB sources
+     "*.h"
+     "*.cpp"
+)
+
+add_executable(BytecodeMachine ${sources})
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

@@ -92,7 +92,7 @@ public:
         {
             uint32_t value = getTop();
 
-            stack.push(((2L << 32) - 1) - value);
+            stack.push(0xFFFFFFFF - value);
             break;
         }
         case Code::EQUAL:

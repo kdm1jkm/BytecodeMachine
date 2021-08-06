@@ -4,6 +4,8 @@ project(BytecodeMachine VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR})
+
 file(GLOB sources
      "src/*.h"
      "src/*.cpp"

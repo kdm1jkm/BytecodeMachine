@@ -3,15 +3,13 @@
 #include <stack>
 #include <vector>
 
-using namespace std;
-
 class Machine
 {
 private:
-    ifstream in;
-    stack<int32_t> stack;
-    vector<int32_t> argument;
-    vector<int32_t> local;
+    std::ifstream in;
+    std::stack<int32_t> stack;
+    std::vector<int32_t> argument;
+    std::vector<int32_t> local;
 
     enum Code
     {
@@ -35,7 +33,7 @@ private:
     };
 
 public:
-    Machine(const string &filename, const vector<int32_t> &arguments) : in(filename, ios::binary)
+    Machine(const std::string &filename, const std::vector<int32_t> &arguments) : in(filename, std::ios::binary)
     {
         uint8_t localLength = readCur<uint8_t>();
         uint8_t argumentLength = readCur<uint8_t>();
@@ -183,21 +181,21 @@ public:
                 // 정수
                 case 0:
                 {
-                    cin >> value;
+                    std::cin >> value;
                     break;
                 }
                 // 문자
                 case 1:
                 {
                     char input;
-                    cin >> input;
+                    std::cin >> input;
                     value = input;
                     break;
                 }
                 // hex
                 case 2:
                 {
-                    cin >> hex >> value;
+                    std::cin >> std::hex >> value;
                     break;
                 }
                 }
@@ -229,19 +227,19 @@ public:
                 // 정수
                 case 0:
                 {
-                    cout << value;
+                    std::cout << value;
                     break;
                 }
                 // 문자
                 case 1:
                 {
                     char c = (char)value;
-                    cout << c;
+                    std::cout << c;
                 }
                 // hex
                 case 2:
                 {
-                    cout << hex << value;
+                    std::cout << std::hex << value;
                 }
                 }
                 break;

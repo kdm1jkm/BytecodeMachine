@@ -49,6 +49,7 @@ int main(int argc, char **argv)
             string input;
 
             cin.ignore();
+            cout << "Enter nothing to stop entering parameter." << endl;
             while (true)
             {
                 cout << "Enter param[" << param.size() << "]>>";

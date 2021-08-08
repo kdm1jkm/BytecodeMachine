@@ -1,9 +1,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cstring>
 #include <set>
 #include <functional>
+#include <filesystem>
+
 #include "Machine.h"
 
 using namespace std;
@@ -38,8 +39,13 @@ int main(int argc, char **argv)
                                         << "Enter>>"; });
 
         string filename;
-        cout << "Enter file>>";
-        cin >> filename;
+        while (true)
+        {
+            cout << "Enter file>>";
+            cin >> filename;
+            if (std::filesystem::exists(filename))
+                break;
+        }
 
         switch (stoi(choice))
         {
@@ -72,11 +78,11 @@ int main(int argc, char **argv)
         }
     }
 
-    if (strcmp(argv[1], "help") == 0)
+    if ("help"s == argv[1])
     {
         printHelp(argv[0]);
     }
-    else if (strcmp(argv[1], "run") == 0)
+    else if ("run"s == argv[1])
     {
         vector<int32_t> param;
         for (int i = 3; i < argc; i++)
@@ -86,7 +92,7 @@ int main(int argc, char **argv)
         Machine machine(argv[2], param);
         machine.runUntilEnd();
     }
-    else if (strcmp(argv[1], "compile") == 0)
+    else if ("compile"s == argv[1])
     {
         cout << "Not supported" << endl;
     }

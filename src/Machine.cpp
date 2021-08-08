@@ -27,18 +27,17 @@ Machine::Machine(const std::string &filename, const std::vector<int32_t> &argume
 
 void Machine::runUntilEnd()
 {
-    while (!in.eof())
+    while (true)
     {
-        runNextByte();
+        uint8_t command = readCur<uint8_t>();
+        if (in.eof())
+            break;
+        runNextByte(command);
     }
 }
 
-void Machine::runNextByte()
+void Machine::runNextByte(uint8_t command)
 {
-    int pos = in.tellg();
-
-    uint8_t command = readCur<uint8_t>();
-
     switch (command)
     {
     case Code::ADD:

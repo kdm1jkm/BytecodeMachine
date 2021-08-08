@@ -39,7 +39,7 @@ public:
 
     void runUntilEnd();
 
-    void runNextByte();
+    void runNextByte(uint8_t command);
 
     int32_t getTop();
 

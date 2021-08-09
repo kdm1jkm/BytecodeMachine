@@ -280,6 +280,7 @@ void Compiler::compile()
     std::ofstream out(output, std::ios::binary | std::ios::trunc);
     std::for_each(commands.begin(), commands.end(), [&out](uint8_t command)
                   { out.write((char *)&command, 1); });
+    out.close();
 }
 
 Compiler::~Compiler()

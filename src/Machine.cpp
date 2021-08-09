@@ -234,3 +234,8 @@ T Machine::readCur()
     in.read((char *)&value, sizeof(T));
     return value;
 }
+
+Machine::~Machine()
+{
+    in.close();
+}

@@ -282,6 +282,11 @@ void Compiler::compile()
                   { out.write((char *)&command, 1); });
 }
 
+Compiler::~Compiler()
+{
+    in.close();
+}
+
 void Compiler::printError(std::function<void(int line, int column)> showMessage)
 {
     int index = in.tellg();

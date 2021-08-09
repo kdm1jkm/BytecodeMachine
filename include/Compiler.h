@@ -18,4 +18,6 @@ public:
     Compiler(const std::string &filename, const std::string output);
 
     void compile();
+
+    ~Compiler();
 };

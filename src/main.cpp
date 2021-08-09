@@ -6,6 +6,7 @@
 #include <filesystem>
 
 #include "Machine.h"
+#include "Compiler.h"
 
 using namespace std;
 
@@ -72,7 +73,8 @@ int main(int argc, char **argv)
         }
         case 2:
         {
-            cout << "Not supported" << endl;
+            Compiler compiler(filename);
+            compiler.compile();
             return EXIT_SUCCESS;
         }
         }
@@ -94,7 +96,8 @@ int main(int argc, char **argv)
     }
     else if ("compile"s == argv[1])
     {
-        cout << "Not supported" << endl;
+        Compiler compiler(argv[2]);
+        compiler.compile();
     }
     else
     {

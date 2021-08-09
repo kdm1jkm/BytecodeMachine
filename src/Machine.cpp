@@ -34,6 +34,7 @@ void Machine::runUntilEnd()
             break;
         runNextByte(command);
     }
+    std::cout << std::endl;
 }
 
 void Machine::runNextByte(uint8_t command)

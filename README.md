@@ -43,3 +43,8 @@
 
 파일의 처음 두 바이트는 각각 local배열의 길이, argument의 갯수를 나타냄.  
 -> jump명령어 작성시 고려하지 않음!
+
+## 컴파일러
+
+대소문자 구별 안함
+local/argument갯수는 자동으로 판단(local, argument index최댓값 + 1)

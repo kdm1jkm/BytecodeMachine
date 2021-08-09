@@ -13,27 +13,6 @@ private:
     std::vector<int32_t> argument;
     std::vector<int32_t> local;
 
-    enum Code
-    {
-        ADD = 0x00,
-        SUBTRACT,
-        NEGATIVE,
-        EQUAL,
-        GREAT_THAN,
-        LESS_THAN,
-        AND,
-        OR,
-        JUMP = 0x10,
-        IF_JUMP,
-        PUSH = 0x20,
-        POP,
-        CONSTANT = 0x30,
-        ARGUMENT,
-        LOCAL,
-        IN,
-        OUT
-    };
-
 public:
     Machine(const std::string &filename, const std::vector<int32_t> &arguments);
 

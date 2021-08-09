@@ -2,6 +2,27 @@
 
 #include "Machine.h"
 
+enum Code
+{
+    ADD = 0x00,
+    SUBTRACT,
+    NEGATIVE,
+    EQUAL,
+    GREAT_THAN,
+    LESS_THAN,
+    AND,
+    OR,
+    JUMP = 0x10,
+    IF_JUMP,
+    PUSH = 0x20,
+    POP,
+    CONSTANT = 0x30,
+    ARGUMENT,
+    LOCAL,
+    IN,
+    OUT
+};
+
 Machine::Machine(const std::string &filename, const std::vector<int32_t> &arguments) : in(filename, std::ios::binary)
 {
     uint8_t localLength = readCur<uint8_t>();

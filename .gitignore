@@ -58,3 +58,7 @@ _deps
 build
 debug.log
 .vscode
+
+cmake-*
+
+.idea

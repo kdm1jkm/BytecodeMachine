@@ -5,8 +5,7 @@
 #include <fstream>
 #include <array>
 
-class Compiler
-{
+class Compiler {
 private:
     const std::string output;
     std::ifstream in;
@@ -15,7 +14,8 @@ private:
 
 public:
     Compiler(const std::string &filename);
-    Compiler(const std::string &filename, const std::string output);
+
+    Compiler(const std::string &filename, const std::string &output);
 
     void compile();
 
